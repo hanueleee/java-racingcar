@@ -24,7 +24,7 @@ public class RoundManager {
         List<RacingCarDto> roundResult = new ArrayList<>();
         racingCars.stream().forEach(racingCar -> {
             racingCar.advance(ALL_CARS_ADVANCE);
-            roundResult.add(racingCar.toDto());
+            roundResult.add(RacingCarDto.create(racingCar));
         });
         return roundResult;
     }
@@ -33,13 +33,13 @@ public class RoundManager {
         List<RacingCarDto> roundResult = new ArrayList<>();
         racingCars.stream().forEach(racingCar -> {
             racingCar.advance(advanceJudgement.isAdvancePossible());
-            roundResult.add(racingCar.toDto());
+            roundResult.add(RacingCarDto.create(racingCar));
         });
         return roundResult;
     }
 
     public List<RacingCarDto> getSortedRacingCars() {
         Collections.sort(racingCars);
-        return racingCars.stream().map(RacingCar::toDto).collect(Collectors.toList());
+        return racingCars.stream().map(RacingCarDto::create).collect(Collectors.toList());
     }
 }

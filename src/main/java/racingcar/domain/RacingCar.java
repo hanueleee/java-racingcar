@@ -19,12 +19,16 @@ public class RacingCar implements Comparable<RacingCar> {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
     @Override
     public int compareTo(RacingCar o) {
         return o.position - this.position;
-    }
-
-    public RacingCarDto toDto() {
-        return new RacingCarDto(name, position);
     }
 }
